@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    background-color: #242F36;
+    overflow: hidden;
+}
+
+.container{
+    top: 150px;
+    height: 70px;
+    width: 70px;
+    background-color: #fff;
+    border-radius: 50px;
+    position: relative;
+    transition: 0.4s ease;
+}
+
+.toggleBox{
+    position: relative;
+    display: block;
+    height: 70px;
+    width: 70px;
+    border-radius: 50p;
+}
+
+.icon{
+    position: absolute;
+    height: 4px;
+    width: 35px;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    background-color: #161d2c;
+    border-radius: 50px;
+}
+
+.icon::before, .icon::after{
+    position: absolute;
+    content: "";
+    height: 4px;
+    width: 35px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #161d2c;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.icon::before{
+    top: 12px;
+}
+
+.icon::after{
+    bottom: 8px;
+}
+
+.toggleBox.active .icon{
+    width: 0;
+}
+
+.toggleBox.active .icon::before{
+    width: 40px;
+    transform-origin: right;
+
+    transform: translate(-25px, 5px) rotate(45deg);
+}
+
+.toggleBox.active .icon::after{
+    width: 40px;
+    transform: translate(-25px, 10px) rotate(-45deg);
+}
+
+.container.active{
+    height: 600px;
+}
+
+.navItems{
+    width: 100%;
+    visibility: hidden;
+}
+
+.container.active .navItems{
+    visibility: visible;
+}
+
+.container.active .navItems li a i{
+    transform: scale(1);
+    transition: 0.4s ease;
+    transition-delay: calc(0.08s * var());
+}
+
+.container.active .navItems li:hover a i{
+    transition: 0.2s ease;
+    color: #1880c0;
+}
+
+.container.active .navItems li a span{
+    transform: translateX(15px);
+    transition: 0.4s ease;
+    transition-delay: calc(0.08s * var(--g));
+}
+
+.container.active .navItems li:hover a span{
+    transform: translateX(30px);
+    transition: 0.2s ease;
+    color: #1880c0;
+}
+ 
+li{
+    list-style: none;
+}
+
+li a{
+    text-transform: uppercase;
+    color: #161d2c;
+    text-decoration: none;
+}
+
+li a i{
+    position: relative;
+    left: -20px;
+    display: block;
+    font-size: 24px;
+    color: rgb(2, 2, 2);
+    padding: 25px 0;
+    width: 100%;
+    text-align: center;
+    transform: scale(0);
+}
+
+li a span{
+    position: relative;
+    top: -45px;
+    left: 50px;
+    color: #fff;
+    margin: 22px 0;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
